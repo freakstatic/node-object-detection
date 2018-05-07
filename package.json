@@ -1,0 +1,25 @@
+{
+  "name": "object-detection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "mkdir -p darknet-configs darknet-configs/cfg darknet-configs/data; wget -nc https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/coco.data -O darknet-configs/cfg/coco.data; wget -nc https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg -O darknet-configs/cfg/yolov3.cfg; wget -nc https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names -O darknet-configs/data/coco.names; wget -nc https://pjreddie.com/media/files/yolov3.weights -O darknet-configs/yolov3.weights; true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "\"object",
+    "detection\"",
+    "yolo"
+  ],
+  "author": "Ricardo Maltez & Rúben Caceiro",
+  "license": "ISC",
+  "dependencies": {
+    "node-yolo": "https://github.com/rcaceiro/node-yolo/releases/download/v1.0.2/node-yolo-1.0.2.tgz",
+    "chokidar": "^2.0.3",
+    "socket.io-client": "^2.1.0"
+  }
+}

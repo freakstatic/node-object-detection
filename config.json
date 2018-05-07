@@ -1,0 +1,4 @@
+{
+  "socketServerURL": "http://localhost:3000",
+  "folderToWatch" : "/mnt/barracuda/tmp/"
+}

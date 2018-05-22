@@ -13,7 +13,8 @@ let detector = new yolo("darknet-configs", "cfg/coco.data", "cfg/yolov3.cfg", "y
 let watcher;
 socket.on('connect', () => {
     console.log('Connected to socket server');
-    watcher = chokidar.watch(configs.folderToWatch, {
+    socket.emit('authenticate',{username:'yolo',password:'yolo'});
+     watcher = chokidar.watch(configs.folderToWatch, {
         ignoreInitial: true,
         awaitWriteFinish: true
     });

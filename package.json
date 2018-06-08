@@ -18,8 +18,9 @@
   "author": "Ricardo Maltez & Rúben Caceiro",
   "license": "ISC",
   "dependencies": {
-    "node-yolo": "https://github.com/rcaceiro/node-yolo/releases/download/v1.0.2/node-yolo-1.0.2.tgz",
     "chokidar": "^2.0.3",
+    "node-yolo": "https://github.com/rcaceiro/node-yolo/releases/download/v1.0.2/node-yolo-1.0.2.tgz",
+    "request": "^2.87.0",
     "socket.io-client": "^2.1.0"
   }
 }

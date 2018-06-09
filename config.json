@@ -1,4 +1,10 @@
 {
-  "socketServerURL": "http://localhost:3000",
-  "folderToWatch" : "/mnt/barracuda/tmp/"
+  "server": {
+    "url": "http://localhost",
+    "socketPort": 3000,
+    "httpPort": 8080
+  },
+  "folderToWatch": "/mnt/barracuda/tmp/",
+  "username": "yolo",
+  "password": "yolo"
 }

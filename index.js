@@ -2,7 +2,6 @@ const fs = require('fs');
 const configs = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 const io = require('socket.io-client');
-const socket = io(configs.socketServerURL);
 
 const chokidar = require('chokidar');
 

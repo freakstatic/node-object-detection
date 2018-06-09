@@ -21,7 +21,7 @@ getToken().then((token) => {
         socket.emit('authenticate', token);
         watcher = chokidar.watch(configs.folderToWatch, {
             ignoreInitial: true,
-
+            awaitWriteFinish: true
         });
         watcher.on('add', (path) => {
             console.log('File added');

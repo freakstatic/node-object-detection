@@ -63,6 +63,7 @@ function getToken() {
             if (err) {
                 console.error(err);
                 reject();
+                return;
             }
             resolve(body.token);
         })

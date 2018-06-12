@@ -4,7 +4,6 @@
     "socketPort": 3000,
     "httpPort": 8080
   },
-  "folderToWatch": "/mnt/barracuda/tmp/",
   "username": "yolo",
   "password": "yolo"
 }

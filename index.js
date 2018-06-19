@@ -27,12 +27,16 @@ function startJob () {
             watcher.on('add', (path) => {
                 console.log('File added');
                 detector.detect(path).then(data => {
-                    console.log(data);
                     let detection = {
                         objects: data,
                         imgUrl: path,
                     };
-                    socket.emit('detection', detection);
+                    if (socket.connected){
+                        console.log(data);
+                        socket.emit('detection', detection);
+                    }else {
+                        console.error('Seems that the socket has been  disconnected, this detection will be ignored');
+                    }
                 });
             });
         };
@@ -46,7 +50,9 @@ function startJob () {
 
         socket.on('disconnect', () => {
             console.log('Disconnected from socket server');
-            watcher.close();
+            if (watcher){
+                watcher.close();
+            }
             socket.removeAllListeners('set-folder');
             socket.removeAllListeners("connect");
             socket.removeAllListeners("disconnect");

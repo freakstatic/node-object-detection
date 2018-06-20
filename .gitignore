@@ -31,3 +31,6 @@ node_modules
 darknet-configs/*
 
 package-lock.json
+
+Added config file to gitignore
+/config.json

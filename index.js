@@ -1,6 +1,6 @@
 const fs = require('fs');
 const configs = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-
+const axios = require('axios');
 const io = require('socket.io-client');
 
 const chokidar = require('chokidar');
@@ -64,31 +64,25 @@ function startJob () {
 
 
 function getToken() {
-    return new Promise(((resolve, reject) => {
-        let options = {
-            url: configs.server.url + ':' + configs.server.httpPort + '/api/login',
-            'content-type': 'application/json',
-            auth: {
-                user: configs.username,
-                password: configs.password
-            },
-            method: 'POST',
-            json: true
-        };
-
-        request(options, function (err, res, body) {
-            if (err) {
-                console.error(err);
-                setTimeout(() => {
-                   startJob();
-                   console.error('[getToken] Request fail, retrying...')
-                }, 2000);
-                return;
-            }
-            resolve(body.token);
-        })
-
-    }));
-
+ return new Promise(((resolve) =>
+ {
+  axios.post(configs.server.url + ':' + configs.server.httpPort + '/api/login',
+   {
+    username: configs.username,
+    password: configs.password
+   })
+       .then(function(response)
+             {
+              resolve(response.data.token);
+             })
+       .catch(function(error)
+              {
+               console.error(error);
+               setTimeout(() =>
+                          {
+                           startJob();
+                           console.error('[getToken] Request fail, retrying...');
+                          }, 2000);
+              });
+ }));
 }
-

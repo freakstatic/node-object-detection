@@ -4,7 +4,6 @@ const axios = require('axios');
 const io = require('socket.io-client');
 
 const chokidar = require('chokidar');
-const request = require('request');
 
 let yolo = require('node-yolo');
 

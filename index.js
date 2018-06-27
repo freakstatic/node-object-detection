@@ -11,7 +11,7 @@ let detector = new yolo("darknet-configs", "cfg/coco.data", "cfg/yolov3.cfg", "y
 
 startJob();
 
-function startJob () {
+function startJob() {
     getToken().then((token) => {
         let watcher;
         let socket = io(configs.server.url + ':' + configs.server.socketPort, {
@@ -30,10 +30,10 @@ function startJob () {
                         objects: data,
                         imgUrl: path,
                     };
-                    if (socket.connected){
+                    if (socket.connected) {
                         console.log(data);
                         socket.emit('detection', detection);
-                    }else {
+                    } else {
                         console.error('Seems that the socket has been  disconnected, this detection will be ignored');
                     }
                 });
@@ -49,7 +49,7 @@ function startJob () {
 
         socket.on('disconnect', () => {
             console.log('Disconnected from socket server');
-            if (watcher){
+            if (watcher) {
                 watcher.close();
             }
             socket.removeAllListeners('set-folder');
@@ -61,27 +61,22 @@ function startJob () {
 }
 
 
-
 function getToken() {
- return new Promise(((resolve) =>
- {
-  axios.post(configs.server.url + ':' + configs.server.httpPort + '/api/login',
-   {
-    username: configs.username,
-    password: configs.password
-   })
-       .then(function(response)
-             {
-              resolve(response.data.token);
-             })
-       .catch(function(error)
-              {
-               //console.error(error);
-               setTimeout(() =>
-                          {
-                           startJob();
-                           console.error('[getToken] Request fail, retrying...');
-                          }, 2000);
-              });
- }));
+    return new Promise(((resolve) => {
+        axios.post(configs.server.url + ':' + configs.server.httpPort + '/api/login',
+            {
+                username: configs.username,
+                password: configs.password
+            })
+            .then(function (response) {
+                resolve(response.data.token);
+            })
+            .catch(function (error) {
+                //console.error(error);
+                setTimeout(() => {
+                    startJob();
+                    console.error('[getToken] Request fail, retrying...');
+                }, 2000);
+            });
+    }));
 }

@@ -14,7 +14,7 @@ startJob();
 function startJob() {
     getToken().then((token) => {
         let watcher;
-        let socket = io(configs.server.url + ':' + configs.server.socketPort, {
+        let socket = io(configs.server.url + ':' + configs.server.port, {
             'reconnection': false
         });
 
@@ -63,7 +63,7 @@ function startJob() {
 
 function getToken() {
     return new Promise(((resolve) => {
-        axios.post(configs.server.url + ':' + configs.server.httpPort + '/api/login',
+        axios.post(configs.server.url + ':' + configs.server.port + '/api/login',
             {
                 username: configs.username,
                 password: configs.password

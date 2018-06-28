@@ -1,8 +1,7 @@
 {
   "server": {
     "url": "https://ei-project.ricardomaltez.com",
-    "socketPort": 3000,
-    "httpPort": 8080
+    "port": 8080
   },
   "username": "yolo",
   "password": "yolo"

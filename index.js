@@ -5,7 +5,7 @@ const io = require('socket.io-client');
 
 const chokidar = require('chokidar');
 
-let yolo = require('node-yolo');
+let yolo = require('@vapi/node-yolo');
 
 let detector = new yolo("darknet-configs", "cfg/coco.data", "cfg/yolov3.cfg", "yolov3.weights");
 

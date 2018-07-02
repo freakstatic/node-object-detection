@@ -63,7 +63,7 @@ function startJob() {
 
 function getToken() {
     return new Promise(((resolve) => {
-        axios.post(configs.server.url + ':' + configs.server.port + '/api/login',
+        axios.post(configs.server.url + ':' + configs.server.httpPort + '/api/login',
             {
                 username: configs.username,
                 password: configs.password

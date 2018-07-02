@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  'node-object-detection':
+    image: vapi/node-object-detection
+    build: .
+    container_name: node-object-detection

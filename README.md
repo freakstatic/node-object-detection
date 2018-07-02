@@ -17,3 +17,27 @@ npm start
 ```
 config.json
 ```
+
+
+### Docker
+You can also use the node-object-detection with Docker
+#### CUDA
+Build the container
+```
+cd docker/cuda && docker-compose build
+```
+Run it
+```
+docker run --runtime=nvidia -v <Motion output folder>:<Motion output folder> vapi/node-object-detection-cuda
+```
+
+#### CPU
+Build the container image for CPU
+```
+cd docker/cpu && docker-compose build
+```
+
+Run it
+```
+docker run -v <Motion output folder>:<Motion output folder> vapi/node-object-detection
+```

@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  'node-object-detection-cuda':
+    image: vapi/node-object-detection-cuda
+    build: .
+    container_name: node-object-detection-cuda

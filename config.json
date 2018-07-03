@@ -1,6 +1,6 @@
 {
   "server": {
-    "url": "https://ei-project.ricardomaltez.com",
+    "url": "http://localhost",
     "port": 8080
   },
   "username": "yolo",
